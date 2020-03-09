@@ -1,0 +1,4 @@
+hallo_verden_mailable:
+    path: '%kernel.project_dir%/src/Mailables'
+#    default_from_address: 'example@example.com'
+#    default_reply_to_address: 'example@example.com'
