@@ -1,0 +1,6 @@
+services:
+    HalloVerden\MailableBundle\Interfaces\EmailServiceInterface:
+        class: HalloVerden\MailableBundle\Services\EmailService
+        arguments:
+            $mailer: '@mailer'
+            $translator: '@translator'
