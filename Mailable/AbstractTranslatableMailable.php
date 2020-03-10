@@ -58,9 +58,12 @@ abstract class AbstractTranslatableMailable extends AbstractTemplatedMailable im
   }
 
   /**
-   * @inheritDoc
+   * @param string $key
+   * @param string $translatedValue
+   *
+   * @return TranslatableMailableInterface
    */
-  private function setTranslation(string $key, string $translatedValue): TranslatableMailableInterface {
+  protected function setTranslation(string $key, string $translatedValue): TranslatableMailableInterface {
     switch ($key) {
       case self::SUBJECT_PARAMETER:
         $this->subject = $translatedValue;
