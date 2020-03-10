@@ -62,7 +62,6 @@ class MailerMessageListener implements EventSubscriberInterface {
 
     if ($this->from !== null && empty($message->getFrom())) {
       $message->addFrom($this->from);
-      $event->getEnvelope()->setSender($this->from);
     }
 
     if ($this->replyTo !== null && empty($message->getReplyTo())) {
