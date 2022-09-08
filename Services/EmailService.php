@@ -16,24 +16,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class EmailService implements EmailServiceInterface {
 
   /**
-   * @var MailerInterface
-   */
-  private $mailer;
-
-  /**
-   * @var TranslatorInterface
-   */
-  private $translator;
-
-  /**
    * NewEmailService constructor.
-   *
-   * @param MailerInterface     $mailer
-   * @param TranslatorInterface $translator
    */
-  public function __construct(MailerInterface $mailer, TranslatorInterface $translator) {
-    $this->mailer = $mailer;
-    $this->translator = $translator;
+  public function __construct(private readonly MailerInterface $mailer, private readonly TranslatorInterface $translator) {
   }
 
   /**
@@ -68,7 +53,7 @@ class EmailService implements EmailServiceInterface {
   /**
    * @param MailableRecipientInterface[] $recipients
    *
-   * @return array<string, MailableRecipientInterface> key = locale
+   * @return array<string, MailableRecipientInterface[]> key = locale
    */
   private function getRecipientsByLocale(array $recipients): array {
     $defaultLocale = $this->translator->getLocale();
