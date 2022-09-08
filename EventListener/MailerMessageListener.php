@@ -10,16 +10,8 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 
 class MailerMessageListener implements EventSubscriberInterface {
-
-  /**
-   * @var Address|null
-   */
-  private $from = null;
-
-  /**
-   * @var Address|null
-   */
-  private $replyTo = null;
+  private ?Address $from = null;
+  private ?Address $replyTo = null;
 
   /**
    * MailerMessageListener constructor.
@@ -44,7 +36,7 @@ class MailerMessageListener implements EventSubscriberInterface {
   /**
    * @inheritDoc
    */
-  public static function getSubscribedEvents() {
+  public static function getSubscribedEvents(): array {
     return [
       MessageEvent::class => 'onMessage'
     ];
